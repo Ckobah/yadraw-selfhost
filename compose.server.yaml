@@ -1,0 +1,40 @@
+# Server profile (SH-07): local auth, Caddy HTTPS front, systemd-managed.
+# Caddy is the only public entry point (80/443); web/api/postgres/minio stay
+# internal-only on the yadraw network.
+services:
+  api:
+    environment:
+      YADRAW_AUTH_MODE: local
+      YADRAW_BOOTSTRAP_TOKEN: ${YADRAW_BOOTSTRAP_TOKEN:?YADRAW_BOOTSTRAP_TOKEN is required}
+    restart: unless-stopped
+  postgres:
+    restart: unless-stopped
+  minio:
+    restart: unless-stopped
+  web:
+    environment:
+      YADRAW_AUTH_MODE: local
+    restart: unless-stopped
+  caddy:
+    image: caddy:2.11.4-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      YADRAW_SERVER_DOMAIN: ${YADRAW_SERVER_DOMAIN:?YADRAW_SERVER_DOMAIN is required}
+      YADRAW_ACME_EMAIL: ${YADRAW_ACME_EMAIL:?YADRAW_ACME_EMAIL is required}
+      YADRAW_MAX_REQUEST_BODY: ${YADRAW_MAX_REQUEST_BODY:-100MB}
+    depends_on:
+      web:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - yadraw
+
+volumes:
+  caddy_data:
+  caddy_config:

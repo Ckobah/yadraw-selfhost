@@ -1,0 +1,11 @@
+# Local profile (SH-03): web reachable on the loopback only.
+# PostgreSQL, MinIO, API, and init stay on the internal network.
+services:
+  api:
+    environment:
+      CORS_ORIGIN: "http://127.0.0.1:${WEB_PORT_HOST:-3000},http://localhost:${WEB_PORT_HOST:-3000}"
+  web:
+    environment:
+      APP_ORIGIN: "http://127.0.0.1:${WEB_PORT_HOST:-3000},http://localhost:${WEB_PORT_HOST:-3000}"
+    ports:
+      - "127.0.0.1:${WEB_PORT_HOST:-3000}:3000"
