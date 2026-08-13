@@ -1,12 +1,12 @@
 # Changelog
 
-## 0.1.4 — first published public release (recovery candidate)
+## 0.1.5 — first published public release (recovery candidate)
 
 First completed public self-hosted release.
 
-Historical note: the earlier `0.1.0`–`0.1.3` release attempts were stopped by
-the release security gate before a complete public release was published.
-`0.1.4` is the first completed public release.
+Historical note: the earlier `0.1.0`–`0.1.4` release attempts were stopped by
+the release security gate before a clean public installation was possible.
+`0.1.5` is the first completed public release.
 
 ### Included
 
@@ -33,12 +33,24 @@ the release security gate before a complete public release was published.
 - Release jobs that execute dependency-requiring scripts now install the
   committed lockfile (`npm ci`) in their own isolated environments, matching
   the dependency graph verified by the quality job
+- Self-Hosted runtime images moved to dedicated public GHCR packages
+  (`ghcr.io/ckobah/yadraw-selfhost-{web,api,init}`); clean installations no
+  longer require access to the private SaaS/development image packages
+- Release pipeline verifies anonymous GHCR pull before any public
+  distribution or GitHub Release mutation
 
 ### Known limitations
 
 - Single-machine installations (no cluster mode)
 - No scheduled or remote backup destinations
 - No automatic updater service
+
+## 0.1.4 — release attempt (not published for clean install)
+
+The `0.1.4` pipeline and public release completed, but clean installation
+acceptance was blocked because the referenced GHCR packages required
+authentication. `0.1.5` moves the Self-Hosted runtime images to dedicated
+public GHCR packages.
 
 ## 0.1.3 — release attempt (not published)
 

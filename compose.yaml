@@ -47,7 +47,7 @@ services:
     build:
       context: ../..
       dockerfile: infra/selfhost/init/Dockerfile
-    image: ${YADRAW_IMAGE_REGISTRY:-}yadraw-init:${IMAGE_TAG:-local}
+    image: ${YADRAW_IMAGE_REGISTRY:-}yadraw-selfhost-init:${IMAGE_TAG:-local}
     environment:
       V2_DATABASE_URL: postgres://${POSTGRES_USER:-yadraw}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-yadraw}
       MIGRATIONS_DIR: /migrations/v2
@@ -70,7 +70,7 @@ services:
     build:
       context: ../..
       dockerfile: apps/api/Dockerfile
-    image: ${YADRAW_IMAGE_REGISTRY:-}yadraw-api:${IMAGE_TAG:-local}
+    image: ${YADRAW_IMAGE_REGISTRY:-}yadraw-selfhost-api:${IMAGE_TAG:-local}
     environment:
       NODE_ENV: production
       YADRAW_V2_STORAGE: v2-postgres
@@ -110,7 +110,7 @@ services:
         NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL:-}
         NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:-}
         NEXT_PUBLIC_SUPPORT_EMAIL: ${NEXT_PUBLIC_SUPPORT_EMAIL:-support@example.com}
-    image: ${YADRAW_IMAGE_REGISTRY:-}yadraw-web:${IMAGE_TAG:-local}
+    image: ${YADRAW_IMAGE_REGISTRY:-}yadraw-selfhost-web:${IMAGE_TAG:-local}
     environment:
       NODE_ENV: production
       PORT: 3000

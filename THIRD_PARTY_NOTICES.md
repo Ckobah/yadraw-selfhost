@@ -1,6 +1,6 @@
 # Third Party Notices
 
-Yadraw Self-Hosted 0.1.4 is distributed with third-party components that are
+Yadraw Self-Hosted 0.1.5 is distributed with third-party components that are
 licensed by their respective copyright holders.
 
 The complete dependency inventory, versions and license references are
