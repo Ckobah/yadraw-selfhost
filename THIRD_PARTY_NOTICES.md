@@ -1,6 +1,6 @@
 # Third Party Notices
 
-Yadraw Self-Hosted 0.1.2 is distributed with third-party components that are
+Yadraw Self-Hosted 0.1.4 is distributed with third-party components that are
 licensed by their respective copyright holders.
 
 The complete dependency inventory, versions and license references are
@@ -13,3 +13,9 @@ distributed components.
 Yadraw uses React Flow (`@xyflow/react`) as its node-based canvas UI library.
 `@xyflow/react` is distributed under the MIT license; the exact version and
 license metadata are recorded in the release SBOM and dependency inventory.
+
+## Phone number validation
+
+Release scanning uses `libphonenumber-js` (MIT license) to validate and
+classify phone numbers; the exact version is recorded in the release
+dependency inventory.

@@ -1,12 +1,12 @@
 # Changelog
 
-## 0.1.2 — first published public release
+## 0.1.4 — first published public release (recovery candidate)
 
 First completed public self-hosted release.
 
-Historical note: the earlier `0.1.0` and `0.1.1` release attempts were stopped
-by the release security gate before any public distribution and were never
-published. `0.1.2` is the first publicly released version.
+Historical note: the earlier `0.1.0`–`0.1.3` release attempts were stopped by
+the release security gate before a complete public release was published.
+`0.1.4` is the first completed public release.
 
 ### Included
 
@@ -24,12 +24,36 @@ published. `0.1.2` is the first publicly released version.
   machine tokens (SHA-256 hashes, image digests, signing key IDs, UUIDs,
   ISO-8601 timestamps) are no longer misclassified as phone numbers, while
   realistic phone numbers in text and JSON remain blocked
+- Phone PII detection now uses libphonenumber-js validation with context-aware
+  classification (`phone-pii-scanner.mjs`): arbitrary digit sequences without
+  phone context are not personal data, and machine tokens are never phones
+- Release pipeline hardening: the public distribution tag is created only
+  after all release assets are verified, and the tag step is safe to re-enter
+  when the existing tag already points to the exact public distribution commit
+- Release jobs that execute dependency-requiring scripts now install the
+  committed lockfile (`npm ci`) in their own isolated environments, matching
+  the dependency graph verified by the quality job
 
 ### Known limitations
 
 - Single-machine installations (no cluster mode)
 - No scheduled or remote backup destinations
 - No automatic updater service
+
+## 0.1.3 — release attempt (not published)
+
+The `0.1.3` release attempt created the source tag, but the release pipeline
+stopped fail-closed at the preflight readiness gate: the isolated release job
+had no installed npm dependencies for the new phone PII scanner
+(libphonenumber-js). No `0.1.3` GHCR images, public distribution, tag or
+GitHub Release were published.
+
+## 0.1.2 — release attempt (not published)
+
+The `0.1.2` release attempt created the public distribution and the public
+`v0.1.2` tag, but stopped fail-closed in the release publishing job before the
+GitHub Release and its assets were published. No `0.1.2` GitHub Release or
+public assets exist.
 
 ## 0.1.1 — release attempt (not published)
 
