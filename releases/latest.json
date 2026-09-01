@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
   "product": "yadraw-selfhost",
-  "version": "0.1.5",
-  "releaseUrl": "https://github.com/Ckobah/yadraw-selfhost/releases/tag/v0.1.5",
+  "version": "0.1.6",
+  "releaseUrl": "https://github.com/Ckobah/yadraw-selfhost/releases/tag/v0.1.6",
   "artifacts": {
     "windows-x64": {
-      "url": "https://github.com/Ckobah/yadraw-selfhost/releases/download/v0.1.5/yadraw-selfhost-release-0.1.5-amd64.tar.gz",
-      "sha256": "44a1f99fd08e297d8455c80013a94d86e0ed73cf587bccb60df841a94dd065ef"
+      "url": "https://github.com/Ckobah/yadraw-selfhost/releases/download/v0.1.6/yadraw-selfhost-release-0.1.6-amd64.tar.gz",
+      "sha256": "e5cd48ce01e2438d8dc77fa3df63cca70d43be4ad10f462858f09d967ba9c259"
     },
     "linux-x64": {
-      "url": "https://github.com/Ckobah/yadraw-selfhost/releases/download/v0.1.5/yadraw-selfhost-release-0.1.5-amd64.tar.gz",
-      "sha256": "44a1f99fd08e297d8455c80013a94d86e0ed73cf587bccb60df841a94dd065ef"
+      "url": "https://github.com/Ckobah/yadraw-selfhost/releases/download/v0.1.6/yadraw-selfhost-release-0.1.6-amd64.tar.gz",
+      "sha256": "e5cd48ce01e2438d8dc77fa3df63cca70d43be4ad10f462858f09d967ba9c259"
     },
     "linux-arm64": {
-      "url": "https://github.com/Ckobah/yadraw-selfhost/releases/download/v0.1.5/yadraw-selfhost-release-0.1.5-arm64.tar.gz",
-      "sha256": "f6f7f403e3a297c4364d04d773f2f8660bd2ca94186f7d392ec3d30ccdf3943b"
+      "url": "https://github.com/Ckobah/yadraw-selfhost/releases/download/v0.1.6/yadraw-selfhost-release-0.1.6-arm64.tar.gz",
+      "sha256": "9acc20a3d53ebd57ecd1428c2d164ff494fe4c24416a264153361d5af906ba96"
     }
   },
   "signingKeyId": "9bff0b468cda0ed9bcff0e4fa018eef200ccdd72bcf77717618c801d39b215f5",
@@ -23,7 +23,8 @@
     "0.1.1",
     "0.1.2",
     "0.1.3",
-    "0.1.4"
+    "0.1.4",
+    "0.1.5"
   ],
-  "createdAt": "2026-08-13T20:41:13.109Z"
+  "createdAt": "2026-09-01T15:02:01.333Z"
 }

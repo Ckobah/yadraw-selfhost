@@ -1,5 +1,42 @@
 # Changelog
 
+## 0.1.6 — V2 workspace and typed dataflow update
+
+This release brings the current hosted V2 product surface to Self-Hosted while
+preserving the existing single-machine installation and signed-update model.
+
+### Added
+
+- Typed data contracts for card ports, canonical JSON field paths and board
+  model validation.
+- Connection field mapping, declarative activation conditions and typed
+  dataflow dry runs with forwardable runtime payloads.
+- Smart typed connections with per-card port contract overrides and conflict
+  reconciliation.
+- A board-scoped workspace window system with docked, floating and collapsed
+  panels for inspectors, BOM, search and workspace managers.
+- Workspace-hosted card type, connection type, data contract and card library
+  management.
+
+### Improved
+
+- Recursive BOM evaluation is now the canonical evaluation path; the BOM panel
+  remains closed until explicitly opened.
+- Connector geometry controls live in the inspector, automatic-route labels
+  stay attached to their visible curve, and canvas double-clicks no longer
+  select toolbar text.
+- Connection visual ownership, card previews, workspace theme inheritance,
+  panel persistence, z-order and safe autosave/close behavior were hardened.
+- Mutation ordering, version-conflict handling, smart-connect idempotency and
+  schema-less mapping validation received additional regression coverage.
+
+### Database and upgrades
+
+- Includes additive, idempotent migrations `023` through `026` for data
+  contracts, field mappings, activation conditions and card port overrides.
+- Signed `expand-compatible` updates are supported from `0.1.0` through
+  `0.1.5`; production users should create a verified backup before updating.
+
 ## 0.1.5 — first published public release (recovery candidate)
 
 First completed public self-hosted release.
